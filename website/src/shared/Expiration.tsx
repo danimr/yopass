@@ -16,7 +16,7 @@ export const Expiration = (props: { control: Control<any> }) => {
       <Controller
         rules={{ required: true }}
         control={props.control}
-        defaultValue="3600"
+        defaultValue="604800"
         name="expiration"
         render={({ field }) => (
           <RadioGroup
