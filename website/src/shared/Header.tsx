@@ -14,7 +14,6 @@ export const Header = () => {
       <Toolbar>
         <Link href={home} color="inherit" underline="none">
           <Typography variant="h6" component="div">
-            TuringSecrets
             <Box
               sx={{
                 verticalAlign: 'middle',
@@ -27,6 +26,7 @@ export const Header = () => {
               alt=""
               src="yopass.svg"
             />
+			Secrets
           </Typography>
         </Link>
         <Box
