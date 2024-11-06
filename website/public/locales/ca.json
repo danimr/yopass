@@ -1,0 +1,93 @@
+{
+  "create": {
+    "title": "Encripta missatge",
+    "inputSecretLabel": "Missatge secret",
+    "inputSecretPlaceholder": "Missatge per encriptar localment al teu navegador",
+    "buttonEncrypt": "Encripta missatge",
+    "buttonEncryptLoading": "Encriptant missatge...",
+    "inputOneTimeLabel": "Descàrrega única",
+    "inputPasswordLabel": "Clau de desxifrat personalitzada",
+    "inputGenerateLabel": "Genera clau de desxifrat"
+  },
+  "upload": {
+    "title": "Deixa anar el fitxer per pujar",
+    "caption": "La càrrega de fitxers està dissenyada per a fitxers petits com claus ssh i certificats.",
+    "errorFileTooLarge": "El fitxer és massa gran"
+  },
+  "display": {
+    "titleFetching": "Recuperant de la base de dades, espera si us plau...",
+    "titleDecrypting": "Desxifrant, espera si us plau...",
+    "titleDecryptionKey": "Introdueix la clau de desxifrat",
+    "captionDecryptionKey": "No actualitzis aquesta finestra ja que el secret pot estar restringit a una descàrrega única.",
+    "inputDecryptionKeyPlaceholder": "Clau de desxifrat",
+    "inputDecryptionKeyLabel": "Es requereix una clau de desxifrat, introdueix-la a continuació",
+    "errorInvalidPassword": "Contrasenya invàlida, torna-ho a intentar",
+    "buttonDecrypt": "Desxifra secret"
+  },
+  "error": {
+    "title": "El secret no existeix",
+    "subtitle": "Això pot ser causat per alguna d'aquestes raons.",
+    "titleOpened": "Obert prèviament",
+    "subtitleOpenedBefore": "Un secret pot estar restringit a una única descàrrega. Pot haver-se perdut perquè el remitent ha fet clic en aquest enllaç abans que el visualitzessis.",
+    "subtitleOpenedCompromised": "El secret pot haver estat compromès i llegit per algú altre. Hauries de contactar amb el remitent i sol·licitar un nou secret.",
+    "titleBrokenLink": "Enllaç trencat",
+    "subtitleBrokenLink": "L'enllaç ha de coincidir perfectament perquè el desxifrat funcioni; pot faltar algun dígit màgic.",
+    "titleExpired": "Caducat",
+    "subtitleExpired": "Cap secret dura per sempre. Tots els secrets emmagatzemats caducaran i s'autodestruiran automàticament. La durada varia d'una hora a una setmana."
+  },
+  "result": {
+    "title": "Secret emmagatzemat a la base de dades",
+    "subtitleDownloadOnce": "Recorda que els secrets només es poden descarregar una vegada si no es configura el contrari. Per tant, no obris l'enllaç tu mateix.",
+    "subtitleChannel": "Per major seguretat, la clau de desxifrat s'hauria d'enviar per un canal de comunicació separat.",
+    "rowLabelOneClick": "Enllaç d'un clic",
+    "rowLabelShortLink": "Enllaç curt",
+    "rowLabelDecryptionKey": "Clau de desxifrat"
+  },
+  "secret": {
+    "titleFile": "Fitxer descarregat",
+    "titleMessage": "Missatge desxifrat",
+    "subtitleMessage": "Aquest secret podria no estar disponible novament, assegura't de desar-lo ara!",
+    "buttonCopy": "Copia"
+  },
+  "delete": {
+    "buttonDelete": "Esborra",
+    "messageDeleted": "El secret ha estat eliminat del servidor!",
+    "dialogTitle": "Esborrar secret?",
+    "dialogMessage": "Estàs segur que vols eliminar aquest secret?",
+    "dialogProgress": "Eliminant...",
+    "dialogConfirm": "Esborra",
+    "dialogCancel": "Cancel·la"
+  },
+  "attribution": {
+    "createdBy": "Creat per",
+    "translatedBy": "Traduït per",
+    "translatorName": "",
+    "translatorLink": ""
+  },
+  "expiration": {
+    "legend": "El missatge encriptat s'eliminarà automàticament després de",
+    "optionOneHourLabel": "Una hora",
+    "optionOneDayLabel": "Un dia",
+    "optionOneWeekLabel": "Una setmana"
+  },
+  "features": {
+    "title": "Comparteix secrets de manera segura i senzilla",
+    "subtitle": "Yopass es va crear per reduir la quantitat de contrasenyes en text clar emmagatzemades en correus electrònics i converses de xat, encriptant i generant un enllaç de curta durada que només es pot veure una vegada.",
+    "featureEndToEndTitle": "Xifrat de punt a punt",
+    "featureEndToEndText": "El xifrat i desxifrat es realitzen localment al navegador. La clau mai s'emmagatzema amb yopass.",
+    "featureSelfDestructionTitle": "Autodestrucció",
+    "featureSelfDestructionText": "Els missatges encriptats tenen una vida útil fixa i s'eliminaran automàticament després de la caducitat.",
+    "featureOneTimeTitle": "Descàrregues úniques",
+    "featureOneTimeText": "El missatge encriptat només es pot descarregar una vegada, cosa que redueix el risc que algú espiï els teus secrets.",
+    "featureSimpleSharingTitle": "Compartició senzilla",
+    "featureSimpleSharingText": "Yopass genera un enllaç únic d'un clic per al fitxer o missatge encriptat. La contrasenya de desxifrat es pot enviar per separat.",
+    "featureNoAccountsTitle": "No es necessiten comptes",
+    "featureNoAccountsText": "Compartir ha de ser ràpid i senzill; no s'emmagatzema informació addicional excepte el secret encriptat a la base de dades.",
+    "featureOpenSourceTitle": "Programari de codi obert",
+    "featureOpenSourceText": "El mecanisme de xifrat de Yopass està basat en programari de codi obert, cosa que permet total transparència i la possibilitat d'auditar i afegir funcionalitats."
+  },
+  "header": {
+    "buttonHome": "Inici",
+    "buttonUpload": "Pujar"
+  }
+}
