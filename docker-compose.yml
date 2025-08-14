@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis_yopass
+    restart: always
+    command: redis-server --appendonly yes
+    volumes:
+      - /dockers/redis/data:/data
+    networks:
+      - yopass-network
+
+  yopass:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: turing/yopass
+    container_name: yopass
+    restart: always
+    ports:
+      - "1337:1337"
+    depends_on:
+      - redis
+    command: [
+      "/yopass-server",
+      "--database", "redis",
+      "--redis", "redis://redis:6379"
+    ]
+    networks:
+      - yopass-network
+
+networks:
+  yopass-network:
+    driver: bridge
