@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Container, CssBaseline } from '@mui/material';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 
 import { Header } from './shared/Header';
@@ -7,6 +7,7 @@ import { Features } from './shared/Features';
 import { Attribution } from './shared/Attribution';
 import { theme } from './theme';
 import { HashRouter } from 'react-router-dom';
+import { ConfigProvider } from './shared/ConfigContext';
 
 const App = () => {
   // TODO: Removed in future version.
@@ -18,16 +19,20 @@ const App = () => {
     });
   }
 
+  const features = process.env.YOPASS_DISABLE_FEATURES_CARDS !== '1';
   return (
     <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme} defaultMode="system">
+        <CssBaseline />
         <HashRouter>
-          <Header />
-          <Container maxWidth={'lg'}>
-            <Routing />
-            {/* <Features /> */}
-            { <Attribution /> }
-          </Container>
+          <ConfigProvider>
+            <Header />
+            <Container maxWidth={'lg'}>
+              <Routing />
+              {features && <Features />}
+              <Attribution />
+            </Container>
+          </ConfigProvider>
         </HashRouter>
       </ThemeProvider>
     </StyledEngineProvider>

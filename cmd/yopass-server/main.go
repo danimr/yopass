@@ -30,6 +30,7 @@ func init() {
 	pflag.String("address", "", "listen address (default 0.0.0.0)")
 	pflag.Int("port", 1337, "listen port")
 	pflag.String("database", "memcached", "database backend ('memcached' or 'redis')")
+	pflag.String("asset-path", "public", "path to the assets folder")
 	pflag.Int("max-length", 10000, "max length of encrypted secret")
 	pflag.String("memcached", "localhost:11211", "memcached address")
 	pflag.Int("metrics-port", -1, "metrics server listen port")
@@ -37,6 +38,8 @@ func init() {
 	pflag.String("tls-cert", "", "path to TLS certificate")
 	pflag.String("tls-key", "", "path to TLS key")
 	pflag.Bool("force-onetime-secrets", false, "reject non onetime secrets from being created")
+	pflag.String("cors-allow-origin", "*", "Access-Control-Allow-Origin")
+	pflag.Bool("disable-upload", false, "disable the /file upload endpoints")
 	pflag.CommandLine.AddGoFlag(&flag.Flag{Name: "log-level", Usage: "Log level", Value: &logLevel})
 
 	viper.AutomaticEnv()
@@ -58,7 +61,14 @@ func main() {
 	key := viper.GetString("tls-key")
 	quit := make(chan os.Signal, 1)
 
-	y := server.New(db, viper.GetInt("max-length"), registry, viper.GetBool("force-onetime-secrets"), logger)
+	y := server.Server{
+		DB:                  db,
+		MaxLength:           viper.GetInt("max-length"),
+		Registry:            registry,
+		ForceOneTimeSecrets: viper.GetBool("force-onetime-secrets"),
+		AssetPath:           viper.GetString("asset-path"),
+		Logger:              logger,
+	}
 	yopassSrv := &http.Server{
 		Addr:      fmt.Sprintf("%s:%d", viper.GetString("address"), viper.GetInt("port")),
 		Handler:   y.HTTPHandler(),
@@ -66,6 +76,7 @@ func main() {
 	}
 	go func() {
 		logger.Info("Starting yopass server", zap.String("address", yopassSrv.Addr))
+		logger.Info("Loading assets from: ", zap.String("asset-path", y.AssetPath))
 		err := listenAndServe(yopassSrv, cert, key)
 		if !errors.Is(err, http.ErrServerClosed) {
 			logger.Fatal("yopass stopped unexpectedly", zap.Error(err))

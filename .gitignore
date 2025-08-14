@@ -1,5 +1,6 @@
 vendor
 coverage
+coverage.txt
 website/node_modules
 
 # production
@@ -24,3 +25,5 @@ deploy/aws-lambda/.serverless
 
 website/cypress/videos
 website/cypress/screenshots
+
+.idea
