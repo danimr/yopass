@@ -7,7 +7,10 @@ RUN go build ./cmd/yopass && go build ./cmd/yopass-server
 FROM node:22 AS website
 COPY website /website
 WORKDIR /website
-RUN yarn install --network-timeout 600000 && yarn build
+# Add cache busting and ensure clean install
+RUN rm -rf node_modules package-lock.json
+RUN yarn cache clean
+RUN yarn install --network-timeout 600000 --frozen-lockfile && yarn build
 
 FROM gcr.io/distroless/base
 COPY --from=app /yopass/yopass /yopass/yopass-server /
