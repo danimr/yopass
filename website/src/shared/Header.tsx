@@ -37,7 +37,7 @@ export const Header = () => {
               alt=""
               src="yopass.svg"
             />
-			Secrets
+			      Turing Secrets
           </Typography>
         </Link>
         <Stack
