@@ -23,6 +23,8 @@ services:
     restart: always
     ports:
       - "1337:1337"
+    environment:
+      - YOPASS_DISABLE_FEATURES_CARDS=1
     depends_on:
       - redis
     command: [
